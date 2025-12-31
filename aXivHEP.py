@@ -42,6 +42,7 @@ for entry in entries:
     id_published = entry.find('atom:published', NS)
     summary = entry.find('atom:summary', NS).text
     published = entry.find('atom:published', NS).text
+     entry_id = id_element.text if id_element is not None else 'N/A'
 
     if (isFilter):
        s=""
@@ -49,7 +50,7 @@ for entry in entries:
          s=s+" "+str(n) 
        if (s.find("Chekanov")>-1): continue 
 
-
+    print(f"URL: {entry_id}")
     print(f"Time: {published}")
     print(f"Authors: {', '.join(author_names)}")
     print("-" * 20)
